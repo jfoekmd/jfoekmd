@@ -1,0 +1,34 @@
+from tkinter import *
+tk=Tk()
+counter=0
+
+lbl1=Label(tk,text='click count=0')
+lbl1.pack(side='left')
+
+btn1=Button(tk, text='click')
+btn1.pack(side='left')
+btn2=Button(tk, text='reset')
+btn2.pack(side='left')
+
+
+
+def click():
+    global counter
+    counter+=1
+    lbl1['text']='click counter:'+str(counter)
+    
+def reset():
+    global counter
+    counter=0
+    lbl1['text']='clickk counter:0'
+
+lbl1= Label(tk,text='click counter: '+str(counter))
+lbl1.pack(side='left')
+
+btn1=Button(tk,text='click',commend=click)
+btn1.pack(side='left')
+
+btn2=Button(tk,text='reset',commend=click)
+btn2.pack(side='left')
+
+tk.mainloop()
