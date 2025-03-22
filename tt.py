@@ -7,6 +7,15 @@ def apple_move():
     apple.sety(r.randint(-200,200))
     apple.st()
 
+obstacles=[]
+def createobstacle():
+    obstacles=t.Turtle()
+    obstacles.shape('triangle')
+    obstacles.color('purple')
+    obstacles.penup()
+    obstacles.setx(r.randint(-t.window_width//2,t.window_width//2))
+    obstacles.sety(r.randint(-t.window_height//2,t.window_height//2))
+
 
 
 score=0
@@ -37,16 +46,16 @@ def start():
     apple_move()
     display_score()
     while True:
-        me.forward(score/10+50)
+        me.forward(score/10+20)
         if me.distance(apple)<20:
             score+=10
             apple_move()
             display_score()
+            createobstacle()
         if outside_window():
             gameover()
             break
-
-
+      
 
 score_turtle=t.Turtle()
 score_turtle.ht()
